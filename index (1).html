@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pradnya Gaikwad | AI/ML and full-stack developer</title>
+<meta name="description" content="Portfolio of Pradnya Gaikwad, an MSc IT student who builds AI and full-stack applications with Python, FastAPI and Next.js.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Pradnya Gaikwad | AI/ML and full-stack developer">
+<meta property="og:description" content="MSc IT student building AI and full-stack applications. See NexusAI, a RAG knowledge platform, and a Prometheus monitoring dashboard.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #EAEFE8;
+    --ink: #17211D;
+    --muted: #4A5A52;
+    --line: #BCC9BF;
+    --accent: #1F6B55;
+    --mark: #F0C24B;
+    --on-mark: #17211D;
+    --font: "Familjen Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101815;
+      --ink: #E6EEE8;
+      --muted: #A3B5AA;
+      --line: #2B3B34;
+      --accent: #7CCBB0;
+      --mark: #E7B23B;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 56rem; margin: 0 auto; padding: 0 1.25rem; }
+  a { color: var(--accent); text-underline-offset: 0.2em; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  /* Hero */
+  .hero { padding-top: 4rem; padding-bottom: 3rem; }
+  h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2.75rem, 9vw, 6rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+  .lede {
+    margin: 0;
+    max-width: 36rem;
+    font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+    line-height: 1.35;
+  }
+
+  .ask { margin-top: 2.75rem; }
+  .ask label { display: block; margin-bottom: 0.25rem; font-weight: 600; }
+  .field { display: flex; gap: 1rem; align-items: flex-end; }
+  .field input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.6rem 0;
+    font: inherit;
+    font-size: 1.25rem;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid var(--ink);
+    border-radius: 0;
+  }
+  .field input::placeholder { color: var(--muted); opacity: 1; }
+  .field button {
+    padding: 0.7rem 1.2rem;
+    font: inherit;
+    font-weight: 600;
+    color: var(--bg);
+    background: var(--ink);
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .field button:hover { opacity: 0.85; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .chip {
+    padding: 0.35rem 0.85rem;
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .chip:hover { border-color: var(--ink); }
+  .chip[aria-pressed="true"] { background: var(--mark); color: var(--on-mark); border-color: transparent; }
+
+  .answers { display: grid; gap: 1.25rem; margin-top: 2rem; min-height: 9rem; }
+  .hit { max-width: 44rem; padding: 0.1rem 0 0.1rem 1rem; border-left: 4px solid var(--mark); }
+  .hit .src { margin: 0 0 0.25rem; font-size: 0.9rem; font-weight: 500; color: var(--muted); }
+  .hit .txt { margin: 0; font-size: 1.15rem; }
+  .none { margin: 0; color: var(--muted); }
+  mark { padding: 0 0.15em; color: var(--on-mark); background: var(--mark); border-radius: 2px; }
+
+  .reveal .hit { animation: rise 0.18s ease-out both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(4px); } }
+  @media (prefers-reduced-motion: reduce) { .reveal .hit { animation: none; } }
+
+  /* Sections */
+  main section { padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  h2 { margin: 0 0 1.5rem; font-size: 1.5rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+
+  .projects { display: grid; gap: 2.5rem; }
+  @media (min-width: 52rem) { .projects { grid-template-columns: 3fr 2fr; gap: 3rem; } }
+  .project { padding-top: 1rem; border-top: 2px solid var(--ink); }
+  .project h3 { margin: 0 0 0.75rem; font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; }
+  .project.lead h3 { font-size: 2rem; }
+  .project.side h3 { font-size: 1.4rem; }
+  .project p { margin: 0 0 0.75rem; max-width: 38rem; }
+  .project .stack { color: var(--muted); font-size: 0.95rem; }
+
+  .paper { max-width: 44rem; padding-top: 1rem; border-top: 2px solid var(--ink); }
+  .paper h3 { margin: 0 0 0.5rem; font-size: 1.4rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; }
+  .paper h3 a { color: var(--ink); text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+  .paper .venue { color: var(--muted); font-size: 0.95rem; }
+  .paper p { margin: 0 0 0.75rem; }
+
+  dl.rows { display: grid; grid-template-columns: 1fr; gap: 0.25rem 2rem; margin: 0; }
+  dl.rows dt { font-weight: 600; }
+  dl.rows dd { margin: 0 0 0.9rem; }
+  @media (min-width: 40rem) {
+    dl.rows { grid-template-columns: 11rem 1fr; gap: 0.9rem 2rem; }
+    dl.rows dd { margin: 0; }
+  }
+
+  .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+  .contact p { margin: 0; max-width: 38rem; }
+
+  footer { padding-top: 1rem; padding-bottom: 3rem; color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <h1>Pradnya Gaikwad</h1>
+  <p class="lede">I build AI and full-stack applications, from the database to the deployed app.</p>
+
+  <form class="ask" id="ask" role="search">
+    <label for="q">Ask this portfolio</label>
+    <div class="field">
+      <input id="q" name="q" type="search" autocomplete="off" placeholder="Try: what is your stack?">
+      <button type="submit">Search</button>
+    </div>
+    <div class="chips" role="group" aria-label="Suggested questions">
+      <button type="button" class="chip">What have you built?</button>
+      <button type="button" class="chip">What is your stack?</button>
+      <button type="button" class="chip">Have you published research?</button>
+      <button type="button" class="chip">Where do you study?</button>
+      <button type="button" class="chip">How can I contact you?</button>
+    </div>
+  </form>
+  <div id="answers" class="answers" aria-live="polite">
+    <noscript><p class="none">Turn on JavaScript to search, or read the sections below.</p></noscript>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <article class="project lead">
+        <h3>NexusAI</h3>
+        <p>An AI-powered knowledge management platform. Upload PDFs, then ask questions in plain language. The backend finds the relevant passages by meaning (semantic search) and answers from them using retrieval-augmented generation (RAG).</p>
+        <p>Built with a FastAPI backend and a Next.js frontend, deployed on cloud infrastructure. Tested with 3 to 5 PDFs.</p>
+        <p class="stack">FastAPI, Next.js, RAG, AWS</p>
+        <p><a href="https://github.com/gaikwadpradnya885-sketch/NexusAI">NexusAI code on GitHub</a></p>
+      </article>
+      <article class="project side">
+        <h3>AI-based monitoring dashboard</h3>
+        <p>A Windows screen-time tracker written in Python. It logs which applications are active, stores every record in SQLite, and sends metrics to Prometheus every 5 seconds. A Flask dashboard on Render shows usage trends. Ran for a 3-day test.</p>
+        <p class="stack">Python, Flask, SQLite, Prometheus, Scikit-learn</p>
+        <p><a href="https://github.com/gaikwadpradnya885-sketch/ai-monitoring-project">Dashboard code on GitHub</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>Research</h2>
+    <article class="paper">
+      <h3><a href="https://ijpub.org/ijvra/papers/IJVRA2610093.pdf">Data Quality in WebSocket-Based Real-Time Systems: A Framework for Reliable Data Streaming</a></h3>
+      <p class="venue">International Journal of Versatile Research and Analysis (IJVRA), Volume 4, Issue 10, October 2026. Written with Prof. Rashmi Chavan.</p>
+      <p>Messages in a live WebSocket stream can go missing, arrive twice, arrive late or arrive out of order. The paper proposes the WebSocket Data Quality Assessment Framework (WDQAF), which scores a stream on dimensions such as completeness, validity, timeliness and ordering, then combines them into one score from 0 to 100.</p>
+      <p>I tested it by injecting faults into synthetic sensor data across seven scenarios, from a clean stream to a run with several faults at once.</p>
+    </article>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="rows">
+      <dt>AI and ML</dt><dd>Generative AI, LLM integration, RAG, semantic search, Scikit-learn</dd>
+      <dt>Languages</dt><dd>Python, JavaScript, SQL</dd>
+      <dt>Web</dt><dd>Next.js, FastAPI, Flask, Node.js, REST APIs, HTML, CSS</dd>
+      <dt>Data</dt><dd>MySQL, MongoDB, SQLite, Pandas, NumPy</dd>
+      <dt>Cloud and tools</dt><dd>AWS (EC2, S3), Docker, Git and GitHub, Linux, Render, Vercel</dd>
+    </dl>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <dl class="rows">
+      <dt>MSc IT</dt><dd>Pillai College of Arts, Commerce &amp; Science, Panvel. Currently pursuing.</dd>
+      <dt>B.Sc. IT</dt><dd>Elphinstone College, Mumbai. 2019 to 2024, CGPA 8.66/10.</dd>
+    </dl>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>I'm looking for internships in AI/ML engineering, full-stack development and cloud.</p>
+    <ul class="links">
+      <li><a href="mailto:gaikwadpradnya885@gmail.com">gaikwadpradnya885@gmail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/pradnya26">LinkedIn</a></li>
+      <li><a href="https://github.com/gaikwadpradnya885-sketch">GitHub</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="wrap">&copy; 2026 Pradnya Gaikwad</footer>
+
+<script>
+(function () {
+  // Each passage is a short piece of the portfolio. Questions are matched against its keywords.
+  var PASSAGES = [
+    {
+      source: "NexusAI",
+      text: "NexusAI is an AI-powered knowledge management platform. A FastAPI backend and a Next.js frontend let you ask questions across uploaded PDFs, using retrieval-augmented generation (RAG) and semantic search. I tested it with 3 to 5 PDFs.",
+      kw: ["built", "build", "made", "project", "projects", "work", "nexusai", "ai", "rag", "llm", "pdf", "pdfs", "search", "semantic", "fastapi", "nextjs", "next", "knowledge", "platform", "document", "documents"]
+    },
+    {
+      source: "the monitoring dashboard",
+      text: "A Python tracker logs which Windows applications are in use and stores each record in SQLite. Prometheus collects the metrics every 5 seconds, and a Flask dashboard on Render shows usage trends. I ran it for 3 days.",
+      kw: ["built", "build", "made", "project", "projects", "work", "monitoring", "dashboard", "prometheus", "flask", "sqlite", "screen", "tracker", "metrics", "render", "windows"]
+    },
+    {
+      source: "my research paper",
+      text: "I published a paper on data quality in WebSocket-based real-time systems in the International Journal of Versatile Research and Analysis (October 2026), written with Prof. Rashmi Chavan. It proposes a framework that scores live data streams on completeness, validity, timeliness and ordering.",
+      kw: ["research", "paper", "papers", "publication", "publications", "published", "publish", "journal", "ijvra", "websocket", "websockets", "quality", "framework", "wdqaf", "author", "authored", "writing", "academic"]
+    },
+    {
+      source: "skills",
+      text: "I work in Python, JavaScript and SQL. On the backend that means FastAPI, Flask and Node.js, with Next.js on the frontend. I use MySQL, MongoDB and SQLite for data, and AWS (EC2, S3), Docker, Git and Linux for deployment.",
+      kw: ["stack", "skills", "skill", "tech", "technology", "technologies", "tools", "languages", "language", "python", "javascript", "sql", "aws", "docker", "git", "linux", "backend", "frontend", "cloud", "database", "databases", "use"]
+    },
+    {
+      source: "education",
+      text: "I'm pursuing an MSc in IT at Pillai College of Arts, Commerce & Science, Panvel. Before that I finished a B.Sc. in Information Technology at Elphinstone College, Mumbai, with a CGPA of 8.66/10 (2019 to 2024).",
+      kw: ["education", "study", "studying", "studied", "degree", "college", "university", "msc", "bsc", "cgpa", "student", "school", "qualification", "qualifications", "graduate"]
+    },
+    {
+      source: "contact",
+      text: "I'm looking for internships in AI/ML engineering, full-stack development and cloud. Email gaikwadpradnya885@gmail.com, or find me on LinkedIn and GitHub.",
+      kw: ["contact", "email", "mail", "reach", "linkedin", "github", "hire", "hiring", "looking", "internship", "internships", "intern", "role", "roles", "available", "job", "opportunity", "opportunities"]
+    }
+  ];
+
+  var STOP = {};
+  ("what which who where when why how do does did can could would should will is are was were am be been have has had " +
+   "you your yours me my mine i we our the a an of to and or in on at for with about it its this that there any some " +
+   "tell show give please").split(" ").forEach(function (w) { STOP[w] = true; });
+
+  function tokens(q) {
+    return q.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(function (t) {
+      return t.length > 1 && !STOP[t];
+    });
+  }
+
+  function matches(token, kw) {
+    if (token === kw) return true;
+    if (token.length >= 5 && kw.indexOf(token) === 0) return true;
+    if (kw.length >= 4 && token.indexOf(kw) === 0) return true;
+    return false;
+  }
+
+  function rank(query) {
+    var toks = tokens(query);
+    var scored = PASSAGES.map(function (p, i) {
+      var s = 0;
+      toks.forEach(function (t) {
+        if (p.kw.some(function (k) { return matches(t, k); })) s++;
+      });
+      return { p: p, s: s, i: i };
+    }).filter(function (x) { return x.s > 0; })
+      .sort(function (a, b) { return b.s - a.s || a.i - b.i; })
+      .slice(0, 2);
+    return { toks: toks, hits: scored.map(function (x) { return x.p; }) };
+  }
+
+  function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+
+  function appendHighlighted(node, text, toks) {
+    var terms = toks.filter(function (t) { return t.length > 2; }).map(escapeRe);
+    if (!terms.length) { node.textContent = text; return; }
+    var re = new RegExp("\\b(?:" + terms.join("|") + ")\\w*", "gi");
+    var last = 0, m;
+    while ((m = re.exec(text)) !== null) {
+      if (m.index > last) node.appendChild(document.createTextNode(text.slice(last, m.index)));
+      var mk = document.createElement("mark");
+      mk.textContent = m[0];
+      node.appendChild(mk);
+      last = m.index + m[0].length;
+    }
+    if (last < text.length) node.appendChild(document.createTextNode(text.slice(last)));
+  }
+
+  var form = document.getElementById("ask");
+  var input = document.getElementById("q");
+  var out = document.getElementById("answers");
+  var chips = Array.prototype.slice.call(document.querySelectorAll(".chip"));
+
+  function render(query, animate) {
+    var res = rank(query);
+    out.textContent = "";
+    out.classList.toggle("reveal", !!animate);
+    if (!res.hits.length) {
+      var none = document.createElement("p");
+      none.className = "none";
+      none.textContent = res.toks.length
+        ? "Nothing here matches “" + query.trim() + "”. Try asking about projects, skills, education or contact."
+        : "Type a question or pick one above.";
+      out.appendChild(none);
+      return;
+    }
+    res.hits.forEach(function (h) {
+      var a = document.createElement("article");
+      a.className = "hit";
+      var s = document.createElement("p");
+      s.className = "src";
+      s.textContent = "From " + h.source;
+      var t = document.createElement("p");
+      t.className = "txt";
+      appendHighlighted(t, h.text, res.toks);
+      a.appendChild(s);
+      a.appendChild(t);
+      out.appendChild(a);
+    });
+  }
+
+  function setPressed(query) {
+    chips.forEach(function (c) {
+      c.setAttribute("aria-pressed", c.textContent === query ? "true" : "false");
+    });
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    setPressed(input.value);
+    render(input.value, true);
+  });
+
+  chips.forEach(function (c) {
+    c.setAttribute("aria-pressed", "false");
+    c.addEventListener("click", function () {
+      input.value = c.textContent;
+      setPressed(c.textContent);
+      render(c.textContent, true);
+    });
+  });
+
+  input.addEventListener("input", function () { setPressed(input.value); });
+
+  // Start with the most common question answered, so the hero is never empty.
+  input.value = chips[0].textContent;
+  setPressed(input.value);
+  render(input.value, false);
+
+  window.__portfolioRank = rank; // exposed for quick testing in the console
+})();
+</script>
+</body>
+</html>
